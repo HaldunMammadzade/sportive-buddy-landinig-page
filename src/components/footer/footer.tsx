@@ -19,7 +19,7 @@ const Footer: FC = () => {
                 Sportive Buddy
               </Typography>
               <Typography variant="subtitle1" sx={{ letterSpacing: 1, mb: 2 }}>
-              Sportive Buddy is an online learning platform that has been operating since 2018 until now.
+              Sportive Buddy description Sportive Buddy description Sportive Buddy description Sportive Buddy description Sportive Buddy description .
               </Typography>
               <FooterSocialLinks />
             </Box>

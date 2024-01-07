@@ -1,6 +1,10 @@
 import React, { ReactNode } from 'react'
-import ArtTrackIcon from '@mui/icons-material/ArtTrack'
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney'
+import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
+import PersonSearchIcon from '@mui/icons-material/PersonSearch';
+import HandshakeIcon from '@mui/icons-material/Handshake';
+import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+import DiamondIcon from '@mui/icons-material/Diamond';
 import LocalLibraryIcon from '@mui/icons-material/LocalLibrary'
 import ContactSupportIcon from '@mui/icons-material/ContactSupport'
 
@@ -12,23 +16,23 @@ interface Data {
 
 export const data: Data[] = [
   {
-    title: 'Easy Accessable',
-    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore',
-    icon: <ArtTrackIcon />,
+    title: 'Subscription',
+    description: 'Discover New Hobbies',
+    icon: <NotificationsActiveIcon />,
   },
   {
-    title: 'More Affordable Cost',
-    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore',
-    icon: <AttachMoneyIcon />,
+    title: 'Partnership',
+    description: 'Referral for Sport Clubs',
+    icon: <HandshakeIcon />,
   },
   {
-    title: 'Flexible Study Time',
-    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore',
-    icon: <LocalLibraryIcon />,
+    title: 'Comunity wide events',
+    description: 'Gold, Silver, Bronze',
+    icon: <EmojiEventsIcon />,
   },
   {
-    title: 'Consultation With Mentor',
-    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore',
-    icon: <ContactSupportIcon />,
+    title: 'Premium services',
+    description: 'Exclusive User Experience',
+    icon: <DiamondIcon />,
   },
 ]

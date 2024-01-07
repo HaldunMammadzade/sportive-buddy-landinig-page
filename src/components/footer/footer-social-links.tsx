@@ -21,12 +21,12 @@ export const socialLinks: SocialLink[] = [
   },
   {
     name: 'Dribbble',
-    link: 'https://dribbble.com/shots/18114471-Sportive-Buddy-Landing-Page',
+    link: '#',
     icon: '/images/icons/dribbble.svg',
   },
   {
     name: 'Github',
-    link: 'https://github.com/hiriski/sportive-buddy-landing-page',
+    link: '#',
     icon: '/images/icons/github.svg',
   },
 ]

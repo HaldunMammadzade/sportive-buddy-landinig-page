@@ -8,15 +8,13 @@ interface Props {
 
 const Logo: FC<Props> = ({ onClick, variant }) => {
   return (
-    <Box onClick={onClick}>
-      <Typography
-        variant="h4"
-        component="h1"
-        sx={{ fontWeight: 700, '& span': { color: variant === 'primary' ? 'primary.main' : 'unset' } }}
-      >
-        Sportive<span>Buddy</span>
-      </Typography>
-    </Box>
+    <Box onClick={onClick}
+    sx={{
+      '& img': { width: { xs: 145, md: 160 }, height: 'auto' },
+    }}
+  >
+    <img src="/images/logo-sportive.svg" alt="Logo" />
+  </Box>
   )
 }
 

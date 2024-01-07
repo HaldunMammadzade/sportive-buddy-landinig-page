@@ -44,17 +44,17 @@ const TestimonialItem: FC<Props> = ({ item }) => {
           }}
         >
           <Image
-            src={`/images/avatars/${item.user.photo}`}
+            src={`/images/flags/${item.photo}`}
             width={100}
             height={100}
             quality={97}
-            alt={item.user.name}
+            alt={item.name}
           />
         </Box>
         <Box>
-          <Typography variant="h6">{item.user.name}</Typography>
+          <Typography variant="h6">{item.name}</Typography>
           <Typography variant="subtitle1" sx={{ color: 'text.secondary' }}>
-            {item.user.professional}
+            {item.professional}
           </Typography>
         </Box>
       </Box>
