@@ -26,6 +26,7 @@
   "devDependencies": {
     "@types/node": "17.0.25",
     "@types/react": "18.0.6",
+    "@types/react-curved-text": "^2.0.3",
     "@types/react-dom": "18.0.2",
     "@types/react-scroll": "^1.8.3",
     "@types/react-slick": "^0.23.8",

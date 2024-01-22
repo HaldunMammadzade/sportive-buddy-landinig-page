@@ -565,6 +565,13 @@
   resolved "https://registry.npmjs.org/@types/prop-types/-/prop-types-15.7.11.tgz"
   integrity sha512-ga8y9v9uyeiLdpKddhxYQkxNDrfvuPrlFb0N1qnZZByvcElJaXthF1UhvCh9TLWJBEHeNtdnbysW7Y6Uq8CVng==
 
+"@types/react-curved-text@^2.0.3":
+  version "2.0.3"
+  resolved "https://registry.npmjs.org/@types/react-curved-text/-/react-curved-text-2.0.3.tgz"
+  integrity sha512-J7yy3DJX+I+jQWk5r8IZaVyOLi0bsirD7k0yq2X6IwYTNSCVXfiEYYYq0Yoy4ZErdC2YV2nku+OQIxapPfG/Tg==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-dom@18.0.2":
   version "18.0.2"
   resolved "https://registry.npmjs.org/@types/react-dom/-/react-dom-18.0.2.tgz"

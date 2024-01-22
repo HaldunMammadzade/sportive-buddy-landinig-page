@@ -12,7 +12,7 @@ import Typography from '@mui/material/Typography'
 import { Link as ScrollLink } from 'react-scroll'
 import { StyledButton } from '@/components/styled-button'
 import PlayArrowIcon from '@mui/icons-material/PlayArrow'
-import ReactCurvedText from 'react-curved-text'
+// import ReactCurvedText from 'react-curved-text'
 import HomeVideo from './video'
 interface Exp {
   label: string
@@ -150,7 +150,7 @@ const HomeHero: FC =
           tag.
         </video>
 
-        <Box
+        {/* <Box
           position={
             'absolute'
           }
@@ -209,7 +209,7 @@ const HomeHero: FC =
               null
             }
           />
-        </Box>
+        </Box> */}
 
         <Container maxWidth="lg">
           <Grid
