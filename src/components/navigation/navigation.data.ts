@@ -6,11 +6,11 @@ export const navigations: Navigation[] = [
     path: '#', // '/',
   },
   {
-    label: 'Products',
+    label: 'News',
     path: 'products',
   },
   {
-    label: ' Business Model',
+    label: ' About',
     path: 'feature',
   },
   {

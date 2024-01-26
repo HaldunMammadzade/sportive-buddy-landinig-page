@@ -7,6 +7,7 @@ import Image from 'next/image'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Grid from '@mui/material/Grid'
+import Link from 'next/link'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 import { Link as ScrollLink } from 'react-scroll'
@@ -20,81 +21,6 @@ interface Exp {
 }
 interface ExpItemProps {
   item: Exp
-}
-
-const exps: Array<Exp> =
-  [
-    {
-      label:
-        'Respondents Survey',
-      value:
-        '142',
-    },
-    {
-      label:
-        'Used such apps',
-      value:
-        '7 %',
-    },
-    {
-      label:
-        'Would like to use',
-      value:
-        '93 %',
-    },
-  ]
-
-const ExpItem: FC<
-  ExpItemProps
-> = ({
-  item,
-}) => {
-  const {
-    value,
-    label,
-  } = item
-  return (
-    <Box
-      sx={{
-        textAlign:
-          'center',
-        mb: {
-          xs: 1,
-          md: 0,
-        },
-      }}
-    >
-      <Typography
-        sx={{
-          color:
-            'secondary.main',
-          mb: {
-            xs: 1,
-            md: 2,
-          },
-          fontSize:
-            {
-              xs: 34,
-              md: 44,
-            },
-          fontWeight:
-            'bold',
-        }}
-      >
-        {
-          value
-        }
-      </Typography>
-      <Typography
-        color="text.secondary"
-        variant="h5"
-      >
-        {
-          label
-        }
-      </Typography>
-    </Box>
-  )
 }
 
 const HomeHero: FC =
@@ -131,7 +57,11 @@ const HomeHero: FC =
             videoRef
           }
           width="100%"
-          height="auto"
+          height="500px"
+          style={{
+            objectFit:
+              'cover',
+          }}
           preload="auto"
           autoPlay
           muted
@@ -150,68 +80,7 @@ const HomeHero: FC =
           tag.
         </video>
 
-        {/* <Box
-          position={
-            'absolute'
-          }
-          top={
-            '20px'
-          }
-          left={
-            '20px'
-          }
-          className="circual-text"
-        >
-          <ReactCurvedText
-            width={
-              400
-            }
-            height={
-              400
-            }
-            cx={
-              150
-            }
-            cy={
-              150
-            }
-            rx={
-              100
-            }
-            ry={
-              100
-            }
-            startOffset={
-              50
-            }
-            reversed={
-              true
-            }
-            text="Discover your Sportive Buddy"
-            textProps={{
-              style:
-                {
-                  fontSize: 30,
-                  color:
-                    'red',
-                },
-            }}
-            textPathProps={
-              null
-            }
-            tspanProps={
-              null
-            }
-            ellipseProps={
-              null
-            }
-            svgProps={
-              null
-            }
-          />
-        </Box> */}
-
-        <Container maxWidth="lg">
+        <Container maxWidth="xl">
           <Grid
             item
             xs={
@@ -228,15 +97,31 @@ const HomeHero: FC =
                 '250px',
             }}
           >
-            <Box>
+            <Box
+              position={
+                'absolute'
+              }
+              top={
+                '20px'
+              }
+              right={
+                '-300px'
+              }
+              width={
+                '500px'
+              }
+              height={
+                '350px'
+              }
+            >
               <Image
                 objectFit="contain"
-                src="/images/phone2.png"
+                src="/images/screen.png"
                 width={
-                  250
+                  500
                 }
                 height={
-                  800
+                  350
                 }
                 alt="img"
               />
@@ -245,68 +130,209 @@ const HomeHero: FC =
               position={
                 'absolute'
               }
-              top={
-                '-30px'
+              bottom={
+                '-27rem'
               }
               right={
-                '-190px'
+                '-420px'
+              }
+              zIndex={
+                10
+              }
+              display={
+                'flex'
+              }
+              width={
+                '500px'
               }
             >
-              <Image
-                objectFit="contain"
-                src="/images/screen.png"
-                width={
-                  250
-                }
-                height={
-                  500
-                }
-                alt="img"
-              />
+              <Link href="/">
+                <Image
+                  objectFit="cover"
+                  src="/images/icons/apple.png"
+                  width={
+                    130
+                  }
+                  height={
+                    50
+                  }
+                  alt="img"
+                />
+              </Link>
+              <Link href="/">
+                <Image
+                  objectFit="cover"
+                  src="/images/icons/android.png"
+                  width={
+                    140
+                  }
+                  height={
+                    50
+                  }
+                  alt="img"
+                />
+              </Link>
             </Box>
           </Grid>
 
           {/* Experience */}
           <Box
             sx={{
-              boxShadow: 2,
+              // boxShadow: 2,
               py: 2,
-              px: 7,
+              px: 2,
               borderRadius: 4,
               mt: 4,
+              display:
+                'flex',
+              flexWrap:
+                'wrap',
+              justifyContent:
+                'space-around',
             }}
           >
-            <Grid
-              container
-              spacing={
-                2
+            <Box
+              marginY={
+                '20px'
               }
             >
-              {exps.map(
-                (
-                  item
-                ) => (
-                  <Grid
-                    key={
-                      item.value
-                    }
-                    item
-                    xs={
-                      12
-                    }
-                    md={
-                      4
-                    }
-                  >
-                    <ExpItem
-                      item={
-                        item
-                      }
-                    />
-                  </Grid>
-                )
-              )}
-            </Grid>
+              <Box>
+                {' '}
+                <Image
+                  src="/images/icons/img1.png"
+                  objectFit="contain"
+                  width={
+                    200
+                  }
+                  height={
+                    300
+                  }
+                  alt="img"
+                />
+              </Box>
+
+              <Box
+                fontSize={
+                  '16px'
+                }
+                marginTop={
+                  '20px'
+                }
+              >
+                Customize
+                for
+                your
+                convenience
+              </Box>
+            </Box>
+
+            <Box
+              marginY={
+                '20px'
+              }
+            >
+              <Box>
+                {' '}
+                <Image
+                  src="/images/icons/img2.png"
+                  objectFit="contain"
+                  width={
+                    200
+                  }
+                  height={
+                    300
+                  }
+                  alt="img"
+                />
+              </Box>
+
+              <Box
+                fontSize={
+                  '16px'
+                }
+                marginTop={
+                  '20px'
+                }
+              >
+                Enjoy
+                fitness
+                with
+                your
+                ideal
+                squad!
+              </Box>
+            </Box>
+
+            <Box
+              marginY={
+                '20px'
+              }
+            >
+              <Box>
+                {' '}
+                <Image
+                  src="/images/icons/img3.png"
+                  objectFit="contain"
+                  width={
+                    200
+                  }
+                  height={
+                    300
+                  }
+                  alt="img"
+                />
+              </Box>
+
+              <Box
+                fontSize={
+                  '16px'
+                }
+                marginTop={
+                  '20px'
+                }
+              >
+                Chat,
+                Schedule,
+                Enjoy
+                Sport!
+              </Box>
+            </Box>
+
+            <Box
+              marginY={
+                '20px'
+              }
+            >
+              <Box>
+                {' '}
+                <Image
+                  src="/images/icons/img4.png"
+                  objectFit="contain"
+                  width={
+                    200
+                  }
+                  height={
+                    300
+                  }
+                  alt="img"
+                />
+              </Box>
+
+              <Box
+                fontSize={
+                  '16px'
+                }
+                marginTop={
+                  '20px'
+                }
+              >
+                Your
+                go-to
+                for
+                sports
+                discussions
+              </Box>
+            </Box>
           </Box>
         </Container>
       </Box>
