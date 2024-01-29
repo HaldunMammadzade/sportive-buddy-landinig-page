@@ -102,7 +102,7 @@ const HomeHero: FC =
             'bold'
           }
           width={
-            '600px'
+            '100%'
           }
           position={
             'absolute'
