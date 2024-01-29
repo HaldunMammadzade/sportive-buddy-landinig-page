@@ -13,7 +13,7 @@ import Typography from '@mui/material/Typography'
 import { Link as ScrollLink } from 'react-scroll'
 import { StyledButton } from '@/components/styled-button'
 import PlayArrowIcon from '@mui/icons-material/PlayArrow'
-// import ReactCurvedText from 'react-curved-text'
+import ReactCurvedText from 'react-curved-text'
 import HomeVideo from './video'
 interface Exp {
   label: string
@@ -22,6 +22,21 @@ interface Exp {
 interface ExpItemProps {
   item: Exp
 }
+
+const svgMarkup = `
+    <svg viewBox="0 0 500 500">
+      <path
+        id="curve"
+        fill="transparent"
+        d="M73.2,148.6c4-6.1,10.5-99.8,160.6-80.6c111.3,1.2,140.8,90.3,140.1,97"
+      />
+      <text width="500"  >
+        <textPath xlink:href="#curve">
+          Discover your Sportive Buddy
+        </textPath>
+      </text>
+    </svg>
+  `
 
 const HomeHero: FC =
   () => {
@@ -57,7 +72,7 @@ const HomeHero: FC =
             videoRef
           }
           width="100%"
-          height="500px"
+          height="750px"
           style={{
             objectFit:
               'cover',
@@ -79,6 +94,30 @@ const HomeHero: FC =
           video
           tag.
         </video>
+        <Box
+          fontSize={
+            '10px'
+          }
+          fontWeight={
+            'bold'
+          }
+          width={
+            '600px'
+          }
+          position={
+            'absolute'
+          }
+          top={
+            '-128px'
+          }
+          left={
+            '-153px'
+          }
+          dangerouslySetInnerHTML={{
+            __html:
+              svgMarkup,
+          }}
+        />
 
         <Container maxWidth="xl">
           <Grid
@@ -121,7 +160,7 @@ const HomeHero: FC =
                   500
                 }
                 height={
-                  350
+                  550
                 }
                 alt="img"
               />
@@ -131,10 +170,10 @@ const HomeHero: FC =
                 'absolute'
               }
               bottom={
-                '-27rem'
+                '-42rem'
               }
               right={
-                '-420px'
+                '-400px'
               }
               zIndex={
                 10
@@ -151,7 +190,7 @@ const HomeHero: FC =
                   objectFit="cover"
                   src="/images/icons/apple.png"
                   width={
-                    130
+                    150
                   }
                   height={
                     50
@@ -164,10 +203,10 @@ const HomeHero: FC =
                   objectFit="cover"
                   src="/images/icons/android.png"
                   width={
-                    140
+                    170
                   }
                   height={
-                    50
+                    60
                   }
                   alt="img"
                 />
@@ -193,7 +232,10 @@ const HomeHero: FC =
           >
             <Box
               marginY={
-                '20px'
+                '50px'
+              }
+              textAlign={
+                'center'
               }
             >
               <Box>
@@ -202,10 +244,10 @@ const HomeHero: FC =
                   src="/images/icons/img1.png"
                   objectFit="contain"
                   width={
-                    200
+                    300
                   }
                   height={
-                    300
+                    500
                   }
                   alt="img"
                 />
@@ -213,10 +255,13 @@ const HomeHero: FC =
 
               <Box
                 fontSize={
-                  '16px'
+                  '19px'
                 }
                 marginTop={
                   '20px'
+                }
+                fontWeight={
+                  'bold'
                 }
               >
                 Customize
@@ -228,7 +273,10 @@ const HomeHero: FC =
 
             <Box
               marginY={
-                '20px'
+                '50px'
+              }
+              textAlign={
+                'center'
               }
             >
               <Box>
@@ -237,10 +285,10 @@ const HomeHero: FC =
                   src="/images/icons/img2.png"
                   objectFit="contain"
                   width={
-                    200
+                    300
                   }
                   height={
-                    300
+                    500
                   }
                   alt="img"
                 />
@@ -248,10 +296,13 @@ const HomeHero: FC =
 
               <Box
                 fontSize={
-                  '16px'
+                  '19px'
                 }
                 marginTop={
                   '20px'
+                }
+                fontWeight={
+                  'bold'
                 }
               >
                 Enjoy
@@ -265,7 +316,10 @@ const HomeHero: FC =
 
             <Box
               marginY={
-                '20px'
+                '50px'
+              }
+              textAlign={
+                'center'
               }
             >
               <Box>
@@ -274,10 +328,10 @@ const HomeHero: FC =
                   src="/images/icons/img3.png"
                   objectFit="contain"
                   width={
-                    200
+                    300
                   }
                   height={
-                    300
+                    500
                   }
                   alt="img"
                 />
@@ -285,10 +339,13 @@ const HomeHero: FC =
 
               <Box
                 fontSize={
-                  '16px'
+                  '19px'
                 }
                 marginTop={
                   '20px'
+                }
+                fontWeight={
+                  'bold'
                 }
               >
                 Chat,
@@ -300,7 +357,10 @@ const HomeHero: FC =
 
             <Box
               marginY={
-                '20px'
+                '50px'
+              }
+              textAlign={
+                'center'
               }
             >
               <Box>
@@ -309,10 +369,10 @@ const HomeHero: FC =
                   src="/images/icons/img4.png"
                   objectFit="contain"
                   width={
-                    200
+                    300
                   }
                   height={
-                    300
+                    500
                   }
                   alt="img"
                 />
@@ -320,10 +380,13 @@ const HomeHero: FC =
 
               <Box
                 fontSize={
-                  '16px'
+                  '19px'
                 }
                 marginTop={
                   '20px'
+                }
+                fontWeight={
+                  'bold'
                 }
               >
                 Your

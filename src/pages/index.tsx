@@ -59,9 +59,10 @@ const Home: NextPageWithLayout =
       <>
         <DynamicHomeHero />
         <DynamicHomePopularCourse />
-        <DynamicHomeNewsLetter />
+
         <DynamicHomeFeature />
         <DynamicHomeTestimonial />
+        <DynamicHomeNewsLetter />
         <DynamicHomeOurMentors />
 
         <DynamicHomeContact />

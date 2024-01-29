@@ -29,6 +29,7 @@ const MentorCardItem: FC<
           backgroundColor:
             'background.paper',
           borderRadius: 4,
+
           transition:
             (
               theme
@@ -42,6 +43,8 @@ const MentorCardItem: FC<
             {
               boxShadow: 2,
             },
+          height:
+            '550px',
         }}
       >
         <Box
@@ -63,7 +66,7 @@ const MentorCardItem: FC<
             }
             objectFit="cover"
             height={
-              600
+              700
             }
             alt={
               'Member ' +
@@ -107,7 +110,9 @@ const MentorCardItem: FC<
             }}
             variant="subtitle1"
           >
-            {item.description}
+            {
+              item.description
+            }
           </Typography>
         </Box>
       </Box>

@@ -81,9 +81,79 @@ const HomeFeature: FC =
         }}
       >
         <Container>
+          <Box
+            display={
+              'flex'
+            }
+            flexDirection={
+              'column'
+            }
+            justifyContent={
+              'center'
+            }
+          >
+            <Box
+              sx={{
+                position:
+                  'relative',
+              }}
+              textAlign={
+                'center'
+              }
+              fontSize={
+                '22px'
+              }
+              fontWeight={
+                'bold'
+              }
+            >
+              "World's
+              safest
+              sport
+              community
+              app"
+            </Box>
+
+            <Box
+              display={
+                'flex'
+              }
+              justifyContent={
+                'center'
+              }
+            >
+              <Link href="/">
+                <Image
+                  objectFit="cover"
+                  src="/images/icons/apple.png"
+                  width={
+                    130
+                  }
+                  height={
+                    50
+                  }
+                  alt="img"
+                />
+              </Link>
+              <Link href="/">
+                <Image
+                  objectFit="cover"
+                  src="/images/icons/android.png"
+                  width={
+                    140
+                  }
+                  height={
+                    50
+                  }
+                  alt="img"
+                />
+              </Link>
+            </Box>
+          </Box>
+
           <Grid
             container
-            marginBottom={
+            marginY={
               '70px'
             }
             spacing={
@@ -179,6 +249,8 @@ const HomeFeature: FC =
                     xs: 0,
                     md: 4,
                   },
+                  fontSize:
+                    '1rem',
                 }}
               >
                 We
@@ -211,6 +283,7 @@ const HomeFeature: FC =
                 born.
               </Typography>
             </Grid>
+
             <Grid
               item
               xs={
@@ -249,57 +322,26 @@ const HomeFeature: FC =
           </Grid>
 
           <Grid
-            item
-            xs={
-              12
+            container
+            marginTop={
+              '50px'
             }
-            md={
-              5
+            spacing={
+              3
             }
-            display={{
-              md: 'flex',
-              base: 'block',
-            }}
             alignItems={
               'center'
             }
-            justifyContent={
-              'space-between'
-            }
           >
-            <Box
-              sx={{
-                position:
-                  'relative',
-              }}
-              borderRadius={
-                '20px'
+            <Grid
+              item
+              xs={
+                12
               }
-            >
-              <Image
-                src="/images/image5.jpeg"
-                width={
-                  700
-                }
-                height={
-                  400
-                }
-                quality={
-                  97
-                }
-                alt="Feature img"
-                className="about-img"
-              />
-            </Box>
-
-            <Box
-              display={
-                'flex'
+              md={
+                6
               }
-              flexDirection={
-                'column'
-              }
-              justifyContent={
+              alignItems={
                 'center'
               }
             >
@@ -308,70 +350,24 @@ const HomeFeature: FC =
                   position:
                     'relative',
                 }}
-                textAlign={
-                  'center'
-                }
-                fontSize={
-                  '22px'
-                }
-                fontWeight={
-                  'bold'
-                }
               >
-                "World's
-                safest
-                sport
-                community
-                app"
+                <Image
+                  src="/images/image6.jpeg"
+                  width={
+                    650
+                  }
+                  height={
+                    500
+                  }
+                  quality={
+                    97
+                  }
+                  alt="Feature img"
+                  className="about-img"
+                />
               </Box>
+            </Grid>
 
-              <Box
-                display={
-                  'flex'
-                }
-                justifyContent={
-                  'center'
-                }
-              >
-                <Link href="/">
-                  <Image
-                    objectFit="cover"
-                    src="/images/icons/apple.png"
-                    width={
-                      130
-                    }
-                    height={
-                      50
-                    }
-                    alt="img"
-                  />
-                </Link>
-                <Link href="/">
-                  <Image
-                    objectFit="cover"
-                    src="/images/icons/android.png"
-                    width={
-                      140
-                    }
-                    height={
-                      50
-                    }
-                    alt="img"
-                  />
-                </Link>
-              </Box>
-            </Box>
-          </Grid>
-
-          <Grid
-            container
-            marginTop={
-              '50px'
-            }
-            spacing={
-              3
-            }
-          >
             <Grid
               item
               xs={
@@ -450,8 +446,6 @@ const HomeFeature: FC =
                   </Box>
                 </Typography>
               </Typography>
-
-              
 
               <Grid
                 container
@@ -538,7 +532,7 @@ const HomeFeature: FC =
                             variant="h6"
                             sx={{
                               fontSize:
-                                '1rem',
+                                '1.rem',
                               mb: 1,
                               color:
                                 'secondary.main',
@@ -553,6 +547,8 @@ const HomeFeature: FC =
                               lineHeight: 1.3,
                               color:
                                 'text.secondary',
+                              fontSize:
+                                '1rem',
                             }}
                             variant="subtitle1"
                           >
@@ -566,6 +562,154 @@ const HomeFeature: FC =
                   )
                 )}
               </Grid>
+            </Grid>
+          </Grid>
+          <Grid
+            container
+            marginY={
+              '70px'
+            }
+            spacing={
+              3
+            }
+          >
+            <Grid
+              item
+              xs={
+                12
+              }
+              md={
+                6
+              }
+            >
+              <Typography
+                component="h2"
+                sx={{
+                  position:
+                    'relative',
+                  fontSize:
+                    {
+                      xs: 40,
+                      md: 50,
+                    },
+                  ml: {
+                    xs: 0,
+                    md: 4,
+                  },
+                  mt: 2,
+                  mb: 3,
+                  lineHeight: 1,
+                  fontWeight:
+                    'bold',
+                }}
+              >
+                Our{' '}
+                <Typography
+                  component="mark"
+                  sx={{
+                    position:
+                      'relative',
+                    color:
+                      'primary.main',
+                    fontSize:
+                      'inherit',
+                    fontWeight:
+                      'inherit',
+                    backgroundColor:
+                      'unset',
+                  }}
+                >
+                  Mission{' '}
+                  <br />
+                  <Box
+                    sx={{
+                      position:
+                        'absolute',
+                      top: {
+                        xs: 20,
+                        md: 28,
+                      },
+                      transform:
+                        'rotate(3deg)',
+                      left: 2,
+                      '& img':
+                        {
+                          width:
+                            {
+                              xs: 140,
+                              md: 175,
+                            },
+                          height:
+                            'auto',
+                        },
+                    }}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src="/images/headline-curve.svg"
+                      alt="Headline curve"
+                    />
+                  </Box>
+                </Typography>
+              </Typography>
+
+              <Typography
+                sx={{
+                  color:
+                    'text.secondary',
+                  mb: 2,
+                  ml: {
+                    xs: 0,
+                    md: 4,
+                  },
+                  fontSize:
+                    '1rem',
+                }}
+              >
+                At
+                SportiveBuddy,
+                our
+                mission
+                is
+                to
+                cultivate
+                a
+                thriving
+                sports
+                community
+                that
+                transcends
+                boundaries,
+                uniting
+                individuals
+                through
+                their
+                shared
+                love
+                for
+                sports,
+                competition,
+                and
+                personal
+                growth.
+                We
+                are
+                driven
+                by
+                the
+                belief
+                that
+                sports
+                have
+                the
+                power
+                to
+                inspire,
+                connect,
+                and
+                transform
+                lives.
+              </Typography>
             </Grid>
 
             <Grid
@@ -587,13 +731,14 @@ const HomeFeature: FC =
                 }}
               >
                 <Image
-                  src="/images/image6.jpeg"
+                  src="/images/image5.jpeg"
                   width={
                     650
                   }
                   height={
-                    500
+                    450
                   }
+                  objectFit="cover"
                   quality={
                     97
                   }
