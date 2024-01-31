@@ -80,6 +80,7 @@ const HomeHero: FC =
           preload="auto"
           autoPlay
           muted
+          loop
         >
           <source
             src="/video/v.mp4"
@@ -94,30 +95,38 @@ const HomeHero: FC =
           video
           tag.
         </video>
+
         <Box
-          fontSize={
-            '10px'
+          color={
+            'white'
           }
           fontWeight={
-            'bold'
+            '900'
           }
-          width={
-            '100%'
-          }
+          fontSize={{
+            md: '55px',
+            base: '30px',
+          }}
           position={
             'absolute'
           }
           top={
-            '-128px'
+            '100px'
           }
           left={
-            '-153px'
+            '70px'
           }
-          dangerouslySetInnerHTML={{
-            __html:
-              svgMarkup,
-          }}
-        />
+          className="main-text"
+        >
+          {' '}
+          Turn
+          Solo
+          Workouts{' '}
+          <br />
+          Into
+          Shared
+          Victories
+        </Box>
 
         <Container maxWidth="xl">
           <Grid
@@ -242,12 +251,12 @@ const HomeHero: FC =
                 {' '}
                 <Image
                   src="/images/icons/img1.png"
-                  objectFit="contain"
+                  objectFit="cover"
                   width={
-                    300
+                    325
                   }
                   height={
-                    500
+                    650
                   }
                   alt="img"
                 />
@@ -283,12 +292,12 @@ const HomeHero: FC =
                 {' '}
                 <Image
                   src="/images/icons/img2.png"
-                  objectFit="contain"
+                  objectFit="cover"
                   width={
-                    300
+                    330
                   }
                   height={
-                    500
+                    650
                   }
                   alt="img"
                 />
@@ -326,12 +335,12 @@ const HomeHero: FC =
                 {' '}
                 <Image
                   src="/images/icons/img3.png"
-                  objectFit="contain"
+                  objectFit="cover"
                   width={
-                    300
+                    330
                   }
                   height={
-                    500
+                    650
                   }
                   alt="img"
                 />
@@ -367,12 +376,12 @@ const HomeHero: FC =
                 {' '}
                 <Image
                   src="/images/icons/img4.png"
-                  objectFit="contain"
+                  objectFit="cover"
                   width={
-                    300
+                    330
                   }
                   height={
-                    500
+                    650
                   }
                   alt="img"
                 />
