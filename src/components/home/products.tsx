@@ -1,6 +1,4 @@
 import React, {
-  useState,
-  useEffect,
   FC,
 } from 'react'
 import Box from '@mui/material/Box'
@@ -20,13 +18,9 @@ import {
 } from '@mui/material'
 import IconArrowBack from '@mui/icons-material/ArrowBack'
 import IconArrowForward from '@mui/icons-material/ArrowForward'
-import axios from 'axios'
+
 import { data } from './products.data'
 import { CourseCardItem } from '@/components/course'
-
-interface NewsData {
-  id: string
-}
 
 interface SliderArrowArrow {
   onClick?: () => void
@@ -152,39 +146,6 @@ const HomePopularCourse: FC =
           'md'
         )
       )
-    const [
-      newsData,
-      setNewsData,
-    ] =
-      useState<
-        NewsData[]
-      >([])
-
-    useEffect(() => {
-      const fetchNewsData =
-        async () => {
-          try {
-            const response =
-              await axios.get(
-                'https://sportivebuddy.com/api/news'
-              )
-            setNewsData(
-              response.data
-            )
-          } catch (error) {
-            console.error(
-              'Error fetching news data:',
-              error
-            )
-          }
-        }
-
-      fetchNewsData()
-    }, [])
-
-    console.log(
-      newsData
-    )
 
     const sliderConfig: Settings =
       {
@@ -313,7 +274,7 @@ const HomePopularCourse: FC =
               <Slider
                 {...sliderConfig}
               >
-                {newsData.map(
+                {data.map(
                   (
                     item
                   ) => (
