@@ -4,7 +4,7 @@ import React, {
 import Image from 'next/image'
 import { Box } from '@mui/material'
 import Rating from '@mui/material/Rating'
-import Typography from '@mui/material/Typography'
+import Typography from '@mui/material'
 import IconButton, {
   iconButtonClasses,
 } from '@mui/material/IconButton'
@@ -67,7 +67,7 @@ const CourseCardItem: FC<
             mb: 2,
           }}
         >
-          <img
+          {/* <img
             src={
               item?.banner
             }
@@ -77,7 +77,7 @@ const CourseCardItem: FC<
               height:
                 '250px',
             }}
-          />
+          /> */}
         </Box>
         <Box
           sx={{
