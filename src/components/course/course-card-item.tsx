@@ -20,6 +20,8 @@ const CourseCardItem: FC<
 > = ({
   item,
 }) => {
+  const imageUrl =
+    item.banner
   return (
     <Box
       sx={{
@@ -65,20 +67,16 @@ const CourseCardItem: FC<
             mb: 2,
           }}
         >
-          <Image
+          <img
             src={
-              item.cover
+              imageUrl
             }
-            width={
-              760
-            }
-            height={
-              760
-            }
-            alt={
-              'News ' +
-              item.id
-            }
+            style={{
+              width:
+                '250px',
+              height:
+                '250px',
+            }}
           />
         </Box>
         <Box

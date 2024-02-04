@@ -17,7 +17,7 @@ import IconArrowForward from '@mui/icons-material/ArrowForward'
 
 import { TestimonialItem } from '@/components/testimonial'
 import { data } from './testimonial.data'
-
+import HomeNewsLetter from './newsletter'
 interface SliderArrowArrow {
   onClick?: () => void
   type:
@@ -151,6 +151,12 @@ const HomeTestimonial: FC =
             spacing={
               5
             }
+            alignItems={
+              'center'
+            }
+            justifyContent={
+              'space-between'
+            }
           >
             <Grid
               item
@@ -158,7 +164,7 @@ const HomeTestimonial: FC =
                 12
               }
               md={
-                6
+                5
               }
             >
               <Typography
@@ -259,39 +265,10 @@ const HomeTestimonial: FC =
                 12
               }
               md={
-                6
+                7
               }
-              sx={{
-                display:
-                  {
-                    xs: 'none',
-                    md: 'block',
-                  },
-              }}
             >
-              <Box
-                sx={{
-                  width:
-                    {
-                      xs: '100%',
-                      md: '90%',
-                    },
-                }}
-              >
-                <Image
-                  src="/images/home-testimonial.png"
-                  width={
-                    520
-                  }
-                  height={
-                    540
-                  }
-                  quality={
-                    97
-                  }
-                  alt="Testimonial img"
-                />
-              </Box>
+              <HomeNewsLetter />
             </Grid>
           </Grid>
         </Container>

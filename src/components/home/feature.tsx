@@ -303,7 +303,7 @@ const HomeFeature: FC =
                 }}
               >
                 <Image
-                  src="/images/image7.jpeg"
+                  src="/images/image5.jpeg"
                   width={
                     650
                   }
@@ -564,6 +564,7 @@ const HomeFeature: FC =
               </Grid>
             </Grid>
           </Grid>
+
           <Grid
             container
             marginY={
@@ -731,7 +732,7 @@ const HomeFeature: FC =
                 }}
               >
                 <Image
-                  src="/images/image5.jpeg"
+                  src="/images/image7.jpeg"
                   width={
                     650
                   }

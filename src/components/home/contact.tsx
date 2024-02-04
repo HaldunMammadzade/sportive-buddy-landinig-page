@@ -3,6 +3,7 @@ import React, {
 } from 'react'
 import Box from '@mui/material/Box'
 import InputBase from '@mui/material/InputBase'
+import { TextareaAutosize } from '@mui/material'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 import { StyledButton } from '../styled-button'
@@ -58,49 +59,6 @@ const HomeContact: FC =
                 mb: 6,
               }}
             ></Typography>
-
-            <Box
-              sx={{
-                display:
-                  'flex',
-                alignItems:
-                  'center',
-                flexDirection:
-                  {
-                    xs: 'column',
-                    md: 'row',
-                  },
-                justifyContent:
-                  'space-around',
-                width:
-                  {
-                    xs: '100%',
-                    md: 560,
-                  },
-                mx: 'auto',
-              }}
-            >
-              <InputBase
-                sx={{
-                  backgroundColor:
-                    'background.paper',
-                  borderRadius: 3,
-                  width:
-                    '100%',
-                  height: 48,
-                  px: 2,
-                  mr: {
-                    xs: 0,
-                    md: 3,
-                  },
-                  mb: {
-                    xs: 2,
-                    md: 3,
-                  },
-                }}
-                placeholder="Enter your Full Name"
-              />
-            </Box>
 
             <Box
               sx={{

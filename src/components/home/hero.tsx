@@ -164,7 +164,7 @@ const HomeHero: FC =
             >
               <Image
                 objectFit="contain"
-                src="/images/screen.png"
+                src="/images/home-screen.png"
                 width={
                   500
                 }

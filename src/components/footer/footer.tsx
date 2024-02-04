@@ -70,22 +70,7 @@ const Footer: FC =
                     my: 2,
                   }}
                 >
-                  Sportive
-                  Buddy
-                  description
-                  Sportive
-                  Buddy
-                  description
-                  Sportive
-                  Buddy
-                  description
-                  Sportive
-                  Buddy
-                  description
-                  Sportive
-                  Buddy
-                  description
-                  .
+                  SportiveBuddy stands as the world's safest and most enjoyable sports community application, seamlessly connecting enthusiasts across a diverse range of sports
                 </Typography>
                 <FooterSocialLinks />
               </Box>

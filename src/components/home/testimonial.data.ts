@@ -4,25 +4,25 @@ export const data: Array<Testimonial> = [
   {
     id: 1,
     name: 'Estonia',
-    professional: 'Tallin',
+    city: 'Tallin',
     photo: '1.png',
   },
   {
     id: 2,
     name: 'Finland',
-    professional: 'Helsinki',
+    city: 'Helsinki',
     photo: '2.png',
   },
   {
     id: 3,
     name: 'Latvia',
-    professional: 'Riga',
+    city: 'Riga',
     photo: '3.png',
   },
   {
     id: 4,
     name: 'Lithuania',
-    professional: 'Vilnius',
+    city: 'Vilnius',
     photo: '4.png',
   },
 ]

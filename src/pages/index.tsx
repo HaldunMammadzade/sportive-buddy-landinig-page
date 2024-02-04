@@ -62,7 +62,6 @@ const Home: NextPageWithLayout =
 
         <DynamicHomeFeature />
         <DynamicHomeTestimonial />
-        <DynamicHomeNewsLetter />
         <DynamicHomeOurMentors />
 
         <DynamicHomeContact />
