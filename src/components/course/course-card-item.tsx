@@ -13,15 +13,17 @@ import { Course } from '@/interfaces/course'
 
 interface Props {
   item: Course
+  banner: string
 }
 
 const CourseCardItem: FC<
   Props
 > = ({
   item,
+  banner,
 }) => {
   const imageUrl =
-    item.banner
+    item?.banner
   return (
     <Box
       sx={{
