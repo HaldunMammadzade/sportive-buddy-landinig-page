@@ -13,17 +13,15 @@ import { Course } from '@/interfaces/course'
 
 interface Props {
   item: Course
-  banner: string
 }
 
 const CourseCardItem: FC<
   Props
 > = ({
   item,
-  banner,
 }) => {
-  const imageUrl =
-    item?.banner
+  // const imageUrl =
+  //   item.banner
   return (
     <Box
       sx={{
@@ -71,7 +69,7 @@ const CourseCardItem: FC<
         >
           <img
             src={
-              imageUrl
+              item?.banner
             }
             style={{
               width:
