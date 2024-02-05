@@ -4,9 +4,12 @@ import React, {
 import Box from '@mui/material/Box'
 import { Link as ScrollLink } from 'react-scroll'
 import { navigations } from './navigation.data'
+interface NavigationProps {
+    onData: (childData: boolean) => void;
+}
 
 // @ts-ignore
-const Navigation: React.FC<Headers> = ({ onData }) => {
+const Navigation: React.FC<NavigationProps> = ({ onData }) => {
 
       const [childData, setChildData] = useState<boolean>(false);
 

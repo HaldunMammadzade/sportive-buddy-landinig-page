@@ -141,7 +141,7 @@ const Header: FC =
             >
               <Box />{' '}
               {/* Magic space */}
-              <Navigation  onData={handleChildData}/>
+              <Navigation onData={handleChildData}/>
               {/* <AuthNavigation /> */}
               {visibleMenu &&
                 matchMobileView && (
