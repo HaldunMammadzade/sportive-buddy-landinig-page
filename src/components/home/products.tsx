@@ -1,7 +1,5 @@
 import React, {
   FC,
-  useEffect,
-  useState,
 } from 'react'
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
@@ -21,9 +19,10 @@ import {
 import IconArrowBack from '@mui/icons-material/ArrowBack'
 import IconArrowForward from '@mui/icons-material/ArrowForward'
 
+import { data } from './products.data'
 import { CourseCardItem } from '@/components/course'
 
-interface SliderArrowProps {
+interface SliderArrowArrow {
   onClick?: () => void
   type:
     | 'next'
@@ -32,7 +31,7 @@ interface SliderArrowProps {
 }
 
 const SliderArrow: FC<
-  SliderArrowProps
+  SliderArrowArrow
 > = (
   props
 ) => {
@@ -147,13 +146,6 @@ const HomePopularCourse: FC =
           'md'
         )
       )
-    const [
-      newsData,
-      setNewsData,
-    ] =
-      useState(
-        []
-      ) // State to store fetched data
 
     const sliderConfig: Settings =
       {
@@ -176,7 +168,6 @@ const HomePopularCourse: FC =
             <SliderArrow type="next" />
           ),
         dots: true,
-        rows: 0,
         appendDots:
           (
             dots
@@ -202,36 +193,6 @@ const HomePopularCourse: FC =
             />
           ),
       }
-
-    useEffect(() => {
-      // Fetch data from the API endpoint
-      fetch(
-        'https://sportivebuddy.com/api/news'
-      )
-        .then(
-          (
-            response
-          ) =>
-            response.json()
-        )
-        .then(
-          (
-            data
-          ) =>
-            setNewsData(
-              data
-            )
-        )
-        .catch(
-          (
-            error
-          ) =>
-            console.error(
-              'Error fetching data:',
-              error
-            )
-        )
-    }, []) // Empty dependency array means it will run once after the component mounts
 
     return (
       <Box
@@ -313,7 +274,7 @@ const HomePopularCourse: FC =
               <Slider
                 {...sliderConfig}
               >
-                {newsData.map(
+                {data.map(
                   (
                     item
                   ) => (
