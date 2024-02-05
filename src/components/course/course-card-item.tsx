@@ -79,51 +79,26 @@ const CourseCardItem: FC<
             }}
           /> */}
         </Box>
-        <Box
-          sx={{
-            mb: 2,
-          }}
-        >
-          <Typography
-            component="h2"
-            variant="h5"
-            sx={{
-              mb: 1,
-              height: 40,
-              overflow:
-                'hidden',
-              fontSize:
-                '1.2rem',
-            }}
-          >
+        <div>
+          <h2>
             {
               item.title
             }
-          </Typography>
-          <Typography
-            component="h5"
-            variant="h6"
-            sx={{
-              height: 56,
-              overflow:
-                'hidden',
-              fontSize:
-                '1rem',
-            }}
-          >
+          </h2>
+          <h5>
             {
               item.desc
             }
-          </Typography>
-        </Box>
-        <Box
-          sx={{
+          </h5>
+        </div>
+        <div
+          style={{
             display:
               'flex',
-            alignItems:
-              'center',
             justifyContent:
               'space-between',
+            alignItems:
+              'center',
           }}
         >
           <IconButton
@@ -140,7 +115,7 @@ const CourseCardItem: FC<
           >
             <ArrowForward />
           </IconButton>
-        </Box>
+        </div>
       </Box>
     </Box>
   )
