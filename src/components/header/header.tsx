@@ -37,13 +37,14 @@ const Header: FC =
         )
       )
 
-      const handleChildData = (data: string) => {
+      const handleChildData = (data: boolean) => {
           setVisibleMenu(
               !visibleMenu
           )
       };
 
     // @ts-ignore
+      // @ts-ignore
       return (
       <Box
         sx={{
@@ -141,7 +142,7 @@ const Header: FC =
             >
               <Box />{' '}
               {/* Magic space */}
-              <Navigation  onData={handleChildData}/>
+              <Navigation onData={handleChildData}/>
               {/* <AuthNavigation /> */}
               {visibleMenu &&
                 matchMobileView && (

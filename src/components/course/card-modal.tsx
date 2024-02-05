@@ -19,7 +19,7 @@ const ModalComponent: FC<ModalComponentProps> = ({ isOpen, onClose, item }) => {
                     X
                 </Button>
 
-                <Box sx={{ display: 'filex', justifuContent: 'center'}}>
+                <Box sx={{ display: 'flex', justifyContent: 'center'}}>
                     <img
                         src={
                             item?.banner
