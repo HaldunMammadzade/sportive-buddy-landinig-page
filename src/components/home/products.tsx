@@ -1,299 +1,324 @@
 import React, {
-  FC,
+    FC, useEffect, useState,
 } from 'react'
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
 import Slider, {
-  Settings,
+    Settings,
 } from 'react-slick'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 import {
-  useTheme,
-  styled,
+    useTheme,
+    styled,
 } from '@mui/material/styles'
 import {
-  IconButton,
-  useMediaQuery,
+    IconButton,
+    useMediaQuery,
 } from '@mui/material'
 import IconArrowBack from '@mui/icons-material/ArrowBack'
 import IconArrowForward from '@mui/icons-material/ArrowForward'
 
-import { data } from './products.data'
-import { CourseCardItem } from '@/components/course'
+//import { data } from './products.data'
+import {CourseCardItem} from '@/components/course'
 
 interface SliderArrowArrow {
-  onClick?: () => void
-  type:
-    | 'next'
-    | 'prev'
-  className?: 'string'
+    onClick?: () => void
+    type:
+        | 'next'
+        | 'prev'
+    className?: 'string'
 }
 
-const SliderArrow: FC<
-  SliderArrowArrow
-> = (
-  props
+export interface Course {
+    id: number | string
+    title: string
+    banner: string
+    content: string
+}
+
+const SliderArrow: FC<SliderArrowArrow> = (
+    props
 ) => {
-  const {
-    onClick,
-    type,
-    className,
-  } = props
-  return (
-    <IconButton
-      sx={{
-        backgroundColor:
-          'background.paper',
-        color:
-          'primary.main',
-        '&:hover':
-          {
-            backgroundColor:
-              'primary.main',
-            color:
-              'primary.contrastText',
-          },
-        bottom:
-          {
-            xs: '-70px !important',
-            md: '-28px !important',
-          },
-        left: 'unset !important',
-        right:
-          type ===
-          'prev'
-            ? '60px !important'
-            : '0 !important',
-        zIndex: 10,
-        boxShadow: 1,
-      }}
-      disableRipple
-      color="inherit"
-      onClick={
-        onClick
-      }
-      className={
-        className
-      }
-    >
-      {type ===
-      'next' ? (
-        <IconArrowForward
-          sx={{
-            fontSize: 22,
-          }}
-        />
-      ) : (
-        <IconArrowBack
-          sx={{
-            fontSize: 22,
-          }}
-        />
-      )}
-    </IconButton>
-  )
+    const {
+        onClick,
+        type,
+        className,
+    } = props;
+
+
+    return (
+        <IconButton
+            sx={{
+                backgroundColor:
+                    'background.paper',
+                color:
+                    'primary.main',
+                '&:hover':
+                    {
+                        backgroundColor:
+                            'primary.main',
+                        color:
+                            'primary.contrastText',
+                    },
+                bottom:
+                    {
+                        xs: '-70px !important',
+                        md: '-28px !important',
+                    },
+                left: 'unset !important',
+                right:
+                    type ===
+                    'prev'
+                        ? '60px !important'
+                        : '0 !important',
+                zIndex: 10,
+                boxShadow: 1,
+            }}
+            disableRipple
+            color="inherit"
+            onClick={
+                onClick
+            }
+            className={
+                className
+            }
+        >
+            {type ===
+            'next' ? (
+                <IconArrowForward
+                    sx={{
+                        fontSize: 22,
+                    }}
+                />
+            ) : (
+                <IconArrowBack
+                    sx={{
+                        fontSize: 22,
+                    }}
+                />
+            )}
+        </IconButton>
+    )
 }
 
 const StyledDots =
-  styled(
-    'ul'
-  )(
-    ({
-      theme,
-    }) => ({
-      '&.slick-dots':
-        {
-          position:
-            'absolute',
-          left: 0,
-          bottom:
-            -20,
-          paddingLeft:
-            theme.spacing(
-              1
-            ),
-          textAlign:
-            'left',
-          '& li':
-            {
-              marginRight:
-                theme.spacing(
-                  2
-                ),
-              '&.slick-active>div':
+    styled(
+        'ul'
+    )(
+        ({
+             theme,
+         }) => ({
+            '&.slick-dots':
                 {
-                  backgroundColor:
-                    theme
-                      .palette
-                      .primary
-                      .main,
+                    position:
+                        'absolute',
+                    left: 0,
+                    bottom:
+                        -20,
+                    paddingLeft:
+                        theme.spacing(
+                            1
+                        ),
+                    textAlign:
+                        'left',
+                    '& li':
+                        {
+                            marginRight:
+                                theme.spacing(
+                                    2
+                                ),
+                            '&.slick-active>div':
+                                {
+                                    backgroundColor:
+                                    theme
+                                        .palette
+                                        .primary
+                                        .main,
+                                },
+                        },
                 },
-            },
-        },
-    })
-  )
+        })
+    );
 
 const HomePopularCourse: FC =
-  () => {
-    const {
-      breakpoints,
-    } =
-      useTheme()
-    const matchMobileView =
-      useMediaQuery(
-        breakpoints.down(
-          'md'
-        )
-      )
+    () => {
 
-    const sliderConfig: Settings =
-      {
-        infinite:
-          true,
-        autoplay:
-          true,
-        speed: 300,
-        slidesToShow:
-          matchMobileView
-            ? 1
-            : 3,
-        slidesToScroll: 1,
-        prevArrow:
-          (
-            <SliderArrow type="prev" />
-          ),
-        nextArrow:
-          (
-            <SliderArrow type="next" />
-          ),
-        dots: true,
-        appendDots:
-          (
-            dots
-          ) => (
-            <StyledDots>
-              {
-                dots
-              }
-            </StyledDots>
-          ),
-        customPaging:
-          () => (
-            <Box
-              sx={{
-                height: 8,
-                width: 30,
-                backgroundColor:
-                  'divider',
-                display:
-                  'inline-block',
-                borderRadius: 4,
-              }}
-            />
-          ),
-      }
+        const [data, setData] = useState<Course[] | null>(null);
+        useEffect(() => {
+            const fetchData = async () => {
+                try {
+                    const response = await fetch('https://sportivebuddy.com/api/news');
+                    const result: Course[] = await response.json();
+                    setData(result);
+                    console.log(data)
+                } catch (error) {
+                    console.error('Opss!', error);
+                }
+            };
 
-    return (
-      <Box
-        id="products"
-        sx={{
-          pt: {
-            xs: 6,
-            md: 8,
-          },
-          pb: 14,
-          backgroundColor:
-            'background.default',
-        }}
-      >
-        <Container maxWidth="lg">
-          <Grid
-            container
-            spacing={
-              2
+            fetchData();
+        }, []);
+
+
+        const {
+            breakpoints,
+        } =
+            useTheme()
+        const matchMobileView =
+            useMediaQuery(
+                breakpoints.down(
+                    'md'
+                )
+            )
+
+        const sliderConfig: Settings =
+            {
+                infinite:
+                    false,
+                autoplay:
+                    true,
+                speed: 300,
+                slidesToShow:
+                    matchMobileView
+                        ? 1
+                        : 3,
+                slidesToScroll: 1,
+                prevArrow:
+                    (
+                        <SliderArrow type="prev"/>
+                    ),
+                nextArrow:
+                    (
+                        <SliderArrow type="next"/>
+                    ),
+                dots: true,
+                appendDots:
+                    (
+                        dots
+                    ) => (
+                        <StyledDots>
+                            {
+                                dots
+                            }
+                        </StyledDots>
+                    ),
+                customPaging:
+                    () => (
+                        <Box
+                            sx={{
+                                height: 8,
+                                width: 30,
+                                backgroundColor:
+                                    'divider',
+                                display:
+                                    'inline-block',
+                                borderRadius: 4,
+                            }}
+                        />
+                    ),
             }
-          >
-            <Grid
-              item
-              xs={
-                12
-              }
-              md={
-                3
-              }
-            >
-              <Box
-                sx={{
-                  height:
-                    '100%',
-                  width:
-                    {
-                      xs: '100%',
-                      md: '90%',
-                    },
-                  display:
-                    'flex',
-                  alignItems:
-                    'center',
-                  justifyContent:
-                    {
-                      xs: 'center',
-                      md: 'flex-start',
-                    },
-                }}
-              >
-                <Typography
-                  variant="h1"
-                  sx={{
-                    mt: {
-                      xs: 0,
-                      md: -5,
-                    },
-                    fontSize:
-                      {
-                        xs: 30,
-                        md: 48,
-                      },
-                  }}
-                >
-                  News
-                </Typography>
-              </Box>
-            </Grid>
 
-            <Grid
-              item
-              xs={
-                12
-              }
-              md={
-                9
-              }
+        return (
+            <Box
+                id="products"
+                sx={{
+                    pt: {
+                        xs: 6,
+                        md: 8,
+                    },
+                    pb: 14,
+                    backgroundColor:
+                        'background.default',
+                }}
             >
-              <Slider
-                {...sliderConfig}
-              >
-                {data.map(
-                  (
-                    item
-                  ) => (
-                    <CourseCardItem
-                      key={String(
-                        item.id
-                      )}
-                      item={
-                        item
-                      }
-                    />
-                  )
-                )}
-              </Slider>
-            </Grid>
-          </Grid>
-        </Container>
-      </Box>
-    )
-  }
+                <Container maxWidth="lg">
+                    <Grid
+                        container
+                        spacing={
+                            2
+                        }
+                    >
+                        <Grid
+                            item
+                            xs={
+                                12
+                            }
+                            md={
+                                3
+                            }
+                        >
+                            <Box
+                                sx={{
+                                    height:
+                                        '100%',
+                                    width:
+                                        {
+                                            xs: '100%',
+                                            md: '90%',
+                                        },
+                                    display:
+                                        'flex',
+                                    alignItems:
+                                        'center',
+                                    justifyContent:
+                                        {
+                                            xs: 'center',
+                                            md: 'flex-start',
+                                        },
+                                }}
+                            >
+                                <Typography
+                                    variant="h1"
+                                    sx={{
+                                        mt: {
+                                            xs: 0,
+                                            md: -5,
+                                        },
+                                        fontSize:
+                                            {
+                                                xs: 30,
+                                                md: 48,
+                                            },
+                                    }}
+                                >
+                                    News
+                                </Typography>
+                            </Box>
+                        </Grid>
+
+                        <Grid
+                            item
+                            xs={
+                                12
+                            }
+                            md={
+                                9
+                            }
+                        >
+                            <Slider
+                                {...sliderConfig}
+                            >
+                                {data?.map(
+                                    (
+                                        item
+                                    ) => (
+                                        <CourseCardItem
+                                            key={String(
+                                                item.id
+                                            )}
+                                            item={
+                                                item
+                                            }
+                                        />
+                                    )
+                                )}
+                            </Slider>
+                        </Grid>
+                    </Grid>
+                </Container>
+            </Box>
+        )
+    }
 
 export default HomePopularCourse

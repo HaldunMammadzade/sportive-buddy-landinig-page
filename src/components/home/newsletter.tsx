@@ -97,7 +97,6 @@ const HomeNewsLetter: FC =
                 width:
                   {
                     xs: '100%',
-                    md: 560,
                   },
                 mx: 'auto',
               }}

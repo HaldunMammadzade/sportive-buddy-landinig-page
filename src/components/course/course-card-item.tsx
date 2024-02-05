@@ -11,6 +11,7 @@ import IconButton, {
 import ArrowForward from '@mui/icons-material/ArrowForward'
 import { Course } from '@/interfaces/course'
 import ModalComponent from './card-modal'
+import {width} from "@mui/system";
 
 interface Props {
   item: Course
@@ -28,10 +29,13 @@ const CourseCardItem: FC<
     const handleArrowClick = () => {
       setIsModalOpen(true);
     };
+    /*https://sportivebuddy.com/api/news/get?id=1*/
 
     const handleCloseModal = () => {
       setIsModalOpen(false);
     };
+
+    console.log(item, 'content')
 
     return (
       <Box
@@ -83,6 +87,7 @@ const CourseCardItem: FC<
                 item?.banner
               }
               style={{
+                  minWidth: '200px',
                 width:
                   '250px',
                 height:
@@ -96,9 +101,9 @@ const CourseCardItem: FC<
                 item.title
               }
             </h2>
-            <h5>
+            <h5 style={{overflow: 'hidden'}}>
               {
-                item.desc
+                item.content
               }
             </h5>
           </div>

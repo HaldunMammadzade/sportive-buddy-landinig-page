@@ -53,12 +53,13 @@ const DynamicHomeContact =
         '../components/home/contact'
       )
   )
+
 const Home: NextPageWithLayout =
   () => {
     return (
       <>
         <DynamicHomeHero />
-        <DynamicHomePopularCourse />
+        <DynamicHomePopularCourse/>
 
         <DynamicHomeFeature />
         <DynamicHomeTestimonial />

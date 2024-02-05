@@ -101,9 +101,7 @@ const Footer: FC =
                 display={
                   'flex'
                 }
-                width={
-                  '500px'
-                }
+
               >
                 <Link href="/">
                   <Image

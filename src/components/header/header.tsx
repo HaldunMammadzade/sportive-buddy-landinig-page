@@ -37,7 +37,14 @@ const Header: FC =
         )
       )
 
-    return (
+      const handleChildData = (data: string) => {
+          setVisibleMenu(
+              !visibleMenu
+          )
+      };
+
+    // @ts-ignore
+      return (
       <Box
         sx={{
           backgroundColor:
@@ -134,7 +141,7 @@ const Header: FC =
             >
               <Box />{' '}
               {/* Magic space */}
-              <Navigation />
+              <Navigation  onData={handleChildData}/>
               {/* <AuthNavigation /> */}
               {visibleMenu &&
                 matchMobileView && (

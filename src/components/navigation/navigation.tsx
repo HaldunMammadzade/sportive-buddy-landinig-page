@@ -1,12 +1,18 @@
 import React, {
-  FC,
+  FC, useState
 } from 'react'
 import Box from '@mui/material/Box'
 import { Link as ScrollLink } from 'react-scroll'
 import { navigations } from './navigation.data'
 
-const Navigation: FC =
-  () => {
+// @ts-ignore
+const Navigation: React.FC<Headers> = ({ onData }) => {
+
+      const [childData, setChildData] = useState<boolean>(false);
+
+      const sendDataToParent = () => {
+          onData(childData);
+      };
     return (
       <Box
         sx={{
@@ -40,6 +46,9 @@ const Navigation: FC =
               }
               smooth={
                 true
+              }
+              onClick={
+                  sendDataToParent
               }
               duration={
                 350
@@ -133,3 +142,7 @@ const Navigation: FC =
   }
 
 export default Navigation
+function onData(childData: any) {
+    throw new Error('Function not implemented.')
+}
+
