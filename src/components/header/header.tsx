@@ -37,13 +37,14 @@ const Header: FC =
         )
       )
 
-      const handleChildData = (data: string) => {
+      const handleChildData = (data: boolean) => {
           setVisibleMenu(
               !visibleMenu
           )
       };
 
     // @ts-ignore
+      // @ts-ignore
       return (
       <Box
         sx={{
