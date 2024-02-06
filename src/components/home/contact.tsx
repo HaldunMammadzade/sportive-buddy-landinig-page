@@ -204,7 +204,7 @@ const HomeContact: FC =
               </StyledButton>
             </Box>
 
-            <ToastContainer />
+            <ToastContainer position={toast.POSITION.TOP_CENTER} />
           </Box>
         </Container>
       </Box>
