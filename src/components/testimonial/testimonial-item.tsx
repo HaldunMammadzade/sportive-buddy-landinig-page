@@ -4,10 +4,10 @@ import React, {
 import Image from 'next/image'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
-import { Testimonial } from '@/interfaces/testimonial'
+import { TestimonialTwo } from '@/interfaces/testimonialTwo'
 
 interface Props {
-  item: Testimonial
+  item: TestimonialTwo
 }
 
 const TestimonialItem: FC<
