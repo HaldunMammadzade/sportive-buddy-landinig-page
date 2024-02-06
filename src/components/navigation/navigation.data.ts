@@ -3,23 +3,23 @@ import type { Navigation } from '@/interfaces/navigation'
 export const navigations: Navigation[] = [
   {
     label: 'Home',
-    path: '/', // '/',
+    path: '#', // '/',
   },
   {
     label: 'News',
-    path: '/',
+    path: 'products',
   },
   {
     label: ' About',
-    path: '/',
+    path: 'feature',
   },
   {
     label: 'Operating Countries',
-    path: '/',
+    path: 'testimonial',
   },
   {
     label: 'Team',
-    path: '/',
+    path: 'mentors',
   },
 
 ]

@@ -9,7 +9,7 @@ const HomeNewsLetter: FC =
   () => {
     const [turkeyLocation, setTurkeyLocation] = useState<string | null>(null);
     const [email, setEmail] = useState('');
-
+    const [cong, setCong] = useState('');
     const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       setEmail(event.target.value);
     };
@@ -35,7 +35,7 @@ const HomeNewsLetter: FC =
           return response.json();
         })
         .then(responseData => {
-
+          setCong("Your email sent !")
           console.log(responseData);
         })
         .catch(error => {
@@ -104,8 +104,9 @@ const HomeNewsLetter: FC =
                 },
               }}
             >
-              Notify
-              me
+              {
+                cong.length ? cong : 'Notify me'}
+
             </Typography>
             <Typography
               sx={{

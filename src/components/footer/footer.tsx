@@ -1,5 +1,5 @@
 import React, {
-  FC,
+  FC, useState
 } from 'react'
 import Image from 'next/image'
 import Button from '@mui/material/Button'
@@ -14,8 +14,22 @@ import {
   FooterSocialLinks,
 } from '@/components/footer'
 
+
+
 const Footer: FC =
   () => {
+    const [
+      visibleMenu,
+      setVisibleMenu,
+    ] =
+      useState<boolean>(
+        false
+      )
+    const handleChildData = (data: boolean) => {
+      setVisibleMenu(
+        !visibleMenu
+      )
+    };
     return (
       <Box
         component="footer"
@@ -52,10 +66,10 @@ const Footer: FC =
                 }
                 sx={{
                   width:
-                    {
-                      xs: '100%',
-                      md: 360,
-                    },
+                  {
+                    xs: '100%',
+                    md: 360,
+                  },
                   mb: {
                     xs: 3,
                     md: 0,
@@ -73,6 +87,7 @@ const Footer: FC =
                   SportiveBuddy stands as the world's safest and most enjoyable sports community application, seamlessly connecting enthusiasts across a diverse range of sports
                 </Typography>
                 <FooterSocialLinks />
+                <div className="term"><Link href="/privacy"> Privacy and Policy</Link></div>
               </Box>
             </Grid>
 
@@ -85,7 +100,7 @@ const Footer: FC =
                 4
               }
             >
-              <FooterNavigation />
+              <FooterNavigation onData={handleChildData} />
             </Grid>
 
             <Grid
