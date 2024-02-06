@@ -22,30 +22,30 @@ const NavigationItem: FC<
   label,
   path,
 }) => {
-  return (
-    <Link
-      href={
-        path
-      }
-      passHref
-    >
-      <MuiLink
-        underline="none"
-        sx={{
-          display:
-            'block',
-          mb: 1,
-          color:
-            'black',
-        }}
-      >
-        {
-          label
+    return (
+      <Link
+        href={
+          path
         }
-      </MuiLink>
-    </Link>
-  )
-}
+        passHref
+      >
+        <MuiLink
+          underline="none"
+          sx={{
+            display:
+              'block',
+            mb: 1,
+            color:
+              'black',
+          }}
+        >
+          {
+            label
+          }
+        </MuiLink>
+      </Link>
+    )
+  }
 
 const FooterNavigation: FC =
   () => {
@@ -88,6 +88,15 @@ const FooterNavigation: FC =
               />
             )
           )}
+          <NavigationItem
+
+            label={
+              'Privacy and Policy'
+            }
+            path={
+              '/privacy'
+            }
+          />
         </Grid>
       </Grid>
     )
