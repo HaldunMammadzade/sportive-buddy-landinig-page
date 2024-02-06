@@ -1,14 +1,71 @@
-import React, {
-  FC,
-} from 'react'
+import React, { FC, useEffect, useState } from 'react';
 import Box from '@mui/material/Box'
 import InputBase from '@mui/material/InputBase'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 import { StyledButton } from '../styled-button'
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const HomeNewsLetter: FC =
   () => {
+    const [turkeyLocation, setTurkeyLocation] = useState<string | null>(null);
+    const [email, setEmail] = useState('');
+
+    const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      setEmail(event.target.value);
+    };
+
+
+
+    const handleSendClick = () => {
+      const data = {
+        email: email,
+      };
+
+      fetch('https://sportivebuddy.com/api/notify', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(responseData => {
+          toast.success('Your message sent', { position: toast.POSITION.TOP_CENTER });
+
+          console.log(responseData);
+        })
+        .catch(error => {
+
+          console.error('Error:', error);
+        });
+    };
+
+
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const response = await fetch('https://sportivebuddy.com/api/location');
+          const data = await response.json();
+
+          if (data && data.location && data.location.available) {
+            setTurkeyLocation(data.location.name);
+          }
+        } catch (error) {
+          console.error('Error fetching location:', error);
+        }
+      };
+
+      fetchData();
+    }, []);
+
+
     return (
       <Box
         sx={{
@@ -44,10 +101,10 @@ const HomeNewsLetter: FC =
               sx={{
                 mb: 1,
                 fontSize:
-                  {
-                    xs: 32,
-                    md: 42,
-                  },
+                {
+                  xs: 32,
+                  md: 42,
+                },
               }}
             >
               Notify
@@ -58,11 +115,12 @@ const HomeNewsLetter: FC =
                 mb: 6,
               }}
             >
-              "Want
+
+              {turkeyLocation && `Want
               our
               app
               in
-              Turkey?
+              ${turkeyLocation}
               Share
               with
               friends,
@@ -78,8 +136,10 @@ const HomeNewsLetter: FC =
               make
               it
               a
-              reality!"
+              reality!`}
+
             </Typography>
+
 
             <Box
               sx={{
@@ -88,16 +148,16 @@ const HomeNewsLetter: FC =
                 alignItems:
                   'center',
                 flexDirection:
-                  {
-                    xs: 'column',
-                    md: 'row',
-                  },
+                {
+                  xs: 'column',
+                  md: 'row',
+                },
                 justifyContent:
                   'space-around',
                 width:
-                  {
-                    xs: '100%',
-                  },
+                {
+                  xs: '100%',
+                },
                 mx: 'auto',
               }}
             >
@@ -120,11 +180,13 @@ const HomeNewsLetter: FC =
                   },
                 }}
                 placeholder="Enter your Email Address"
+                onChange={handleEmailChange}
               />
               <Box>
                 <StyledButton
                   disableHoverEffect
                   size="large"
+                  onClick={handleSendClick}
                 >
                   Send
                 </StyledButton>

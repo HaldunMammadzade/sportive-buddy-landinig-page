@@ -5,7 +5,7 @@ import Box from '@mui/material/Box'
 import { Link as ScrollLink } from 'react-scroll'
 import { navigations } from './navigation.data'
 interface NavigationProps {
-    onData: (childData: boolean) => void;
+  onData: (childData: boolean) => void;
 }
 
 interface NavigationProps {
