@@ -7,14 +7,14 @@ import { TextareaAutosize } from '@mui/material'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 import { StyledButton } from '../styled-button'
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+
 
 const HomeContact: FC =
   () => {
 
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
+    const [cong, setCong] = useState('');
 
     const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       setEmail(event.target.value);
@@ -44,8 +44,7 @@ const HomeContact: FC =
           return response.json();
         })
         .then(responseData => {
-          toast.success('Your message sent', { position: toast.POSITION.TOP_CENTER });
-
+          setCong("Your message sent !")
           console.log(responseData);
         })
         .catch(error => {
@@ -96,8 +95,7 @@ const HomeContact: FC =
                 },
               }}
             >
-              Contact
-              Us
+              {cong.length ? cong : 'Contact Us'}
             </Typography>
             <Typography
               sx={{
@@ -204,7 +202,6 @@ const HomeContact: FC =
               </StyledButton>
             </Box>
 
-            <ToastContainer position={toast.POSITION.TOP_CENTER} />
           </Box>
         </Container>
       </Box>

@@ -4,8 +4,6 @@ import InputBase from '@mui/material/InputBase'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 import { StyledButton } from '../styled-button'
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 const HomeNewsLetter: FC =
   () => {
@@ -37,7 +35,6 @@ const HomeNewsLetter: FC =
           return response.json();
         })
         .then(responseData => {
-          toast.success('Your message sent', { position: toast.POSITION.TOP_CENTER });
 
           console.log(responseData);
         })
