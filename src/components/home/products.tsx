@@ -20,13 +20,13 @@ import IconArrowBack from '@mui/icons-material/ArrowBack'
 import IconArrowForward from '@mui/icons-material/ArrowForward'
 
 //import { data } from './products.data'
-import {CourseCardItem} from '@/components/course'
+import { CourseCardItem } from '@/components/course'
 
 interface SliderArrowArrow {
     onClick?: () => void
     type:
-        | 'next'
-        | 'prev'
+    | 'next'
+    | 'prev'
     className?: 'string'
 }
 
@@ -55,21 +55,21 @@ const SliderArrow: FC<SliderArrowArrow> = (
                 color:
                     'primary.main',
                 '&:hover':
-                    {
-                        backgroundColor:
-                            'primary.main',
-                        color:
-                            'primary.contrastText',
-                    },
+                {
+                    backgroundColor:
+                        'primary.main',
+                    color:
+                        'primary.contrastText',
+                },
                 bottom:
-                    {
-                        xs: '-70px !important',
-                        md: '-28px !important',
-                    },
+                {
+                    xs: '-70px !important',
+                    md: '-28px !important',
+                },
                 left: 'unset !important',
                 right:
                     type ===
-                    'prev'
+                        'prev'
                         ? '60px !important'
                         : '0 !important',
                 zIndex: 10,
@@ -85,7 +85,7 @@ const SliderArrow: FC<SliderArrowArrow> = (
             }
         >
             {type ===
-            'next' ? (
+                'next' ? (
                 <IconArrowForward
                     sx={{
                         fontSize: 22,
@@ -107,37 +107,37 @@ const StyledDots =
         'ul'
     )(
         ({
-             theme,
-         }) => ({
+            theme,
+        }) => ({
             '&.slick-dots':
+            {
+                position:
+                    'absolute',
+                left: 0,
+                bottom:
+                    -20,
+                paddingLeft:
+                    theme.spacing(
+                        1
+                    ),
+                textAlign:
+                    'left',
+                '& li':
                 {
-                    position:
-                        'absolute',
-                    left: 0,
-                    bottom:
-                        -20,
-                    paddingLeft:
+                    marginRight:
                         theme.spacing(
-                            1
+                            2
                         ),
-                    textAlign:
-                        'left',
-                    '& li':
-                        {
-                            marginRight:
-                                theme.spacing(
-                                    2
-                                ),
-                            '&.slick-active>div':
-                                {
-                                    backgroundColor:
-                                    theme
-                                        .palette
-                                        .primary
-                                        .main,
-                                },
-                        },
+                    '&.slick-active>div':
+                    {
+                        backgroundColor:
+                            theme
+                                .palette
+                                .primary
+                                .main,
+                    },
                 },
+            },
         })
     );
 
@@ -148,17 +148,25 @@ const HomePopularCourse: FC =
         useEffect(() => {
             const fetchData = async () => {
                 try {
-                    const response = await fetch('https://sportivebuddy.com/api/news');
-                    const result: Course[] = await response.json();
-                    setData(result);
-                    console.log(data)
+                    const response = await fetch('https://sportivebuddy.com/api/news', {
+                        mode: 'no-cors',
+                    });
+
+                    // Check if the response is successful (status code 200)
+                    if (response.ok) {
+                        // The response won't contain the actual data due to no-cors, but you can check headers or use other methods as needed.
+                        console.log('Request successful');
+                    } else {
+                        console.error('Request failed with status:', response.status);
+                    }
                 } catch (error) {
-                    console.error('Opss!', error);
+                    console.error('Oops!', error);
                 }
             };
 
             fetchData();
         }, []);
+
 
 
         const {
@@ -173,51 +181,51 @@ const HomePopularCourse: FC =
             )
 
         const sliderConfig: Settings =
-            {
-                infinite:
-                    false,
-                autoplay:
-                    true,
-                speed: 300,
-                slidesToShow:
-                    matchMobileView
-                        ? 1
-                        : 3,
-                slidesToScroll: 1,
-                prevArrow:
-                    (
-                        <SliderArrow type="prev"/>
-                    ),
-                nextArrow:
-                    (
-                        <SliderArrow type="next"/>
-                    ),
-                dots: true,
-                appendDots:
-                    (
-                        dots
-                    ) => (
-                        <StyledDots>
-                            {
-                                dots
-                            }
-                        </StyledDots>
-                    ),
-                customPaging:
-                    () => (
-                        <Box
-                            sx={{
-                                height: 8,
-                                width: 30,
-                                backgroundColor:
-                                    'divider',
-                                display:
-                                    'inline-block',
-                                borderRadius: 4,
-                            }}
-                        />
-                    ),
-            }
+        {
+            infinite:
+                false,
+            autoplay:
+                true,
+            speed: 300,
+            slidesToShow:
+                matchMobileView
+                    ? 1
+                    : 3,
+            slidesToScroll: 1,
+            prevArrow:
+                (
+                    <SliderArrow type="prev" />
+                ),
+            nextArrow:
+                (
+                    <SliderArrow type="next" />
+                ),
+            dots: true,
+            appendDots:
+                (
+                    dots
+                ) => (
+                    <StyledDots>
+                        {
+                            dots
+                        }
+                    </StyledDots>
+                ),
+            customPaging:
+                () => (
+                    <Box
+                        sx={{
+                            height: 8,
+                            width: 30,
+                            backgroundColor:
+                                'divider',
+                            display:
+                                'inline-block',
+                            borderRadius: 4,
+                        }}
+                    />
+                ),
+        }
 
         return (
             <Box
@@ -253,19 +261,19 @@ const HomePopularCourse: FC =
                                     height:
                                         '100%',
                                     width:
-                                        {
-                                            xs: '100%',
-                                            md: '90%',
-                                        },
+                                    {
+                                        xs: '100%',
+                                        md: '90%',
+                                    },
                                     display:
                                         'flex',
                                     alignItems:
                                         'center',
                                     justifyContent:
-                                        {
-                                            xs: 'center',
-                                            md: 'flex-start',
-                                        },
+                                    {
+                                        xs: 'center',
+                                        md: 'flex-start',
+                                    },
                                 }}
                             >
                                 <Typography
@@ -276,10 +284,10 @@ const HomePopularCourse: FC =
                                             md: -5,
                                         },
                                         fontSize:
-                                            {
-                                                xs: 30,
-                                                md: 48,
-                                            },
+                                        {
+                                            xs: 30,
+                                            md: 48,
+                                        },
                                     }}
                                 >
                                     News

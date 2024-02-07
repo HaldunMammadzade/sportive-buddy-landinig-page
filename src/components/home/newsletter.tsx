@@ -26,6 +26,7 @@ const HomeNewsLetter: FC =
         headers: {
           'Content-Type': 'application/json',
         },
+        mode: 'no-cors',
         body: JSON.stringify(data),
       })
         .then(response => {
@@ -48,14 +49,17 @@ const HomeNewsLetter: FC =
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await fetch('https://sportivebuddy.com/api/location');
-          const data = await response.json();
-
-          if (data && data.location && data.location.available) {
-            setTurkeyLocation(data.location.name);
+          const response = await fetch('https://sportivebuddy.com/api/location', {
+            method: 'GET',
+            mode: 'no-cors',
+          });
+          if (response.ok) {
+            console.log('success');
+          } else {
+            console.error('error');
           }
         } catch (error) {
-          console.error('Error fetching location:', error);
+          console.error('error:', error);
         }
       };
 
