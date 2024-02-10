@@ -151,11 +151,11 @@ const HomePopularCourse: FC =
                     const response = await fetch('https://sportivebuddy.com/api/news', {
                         mode: 'no-cors',
                     });
-
-                    // Check if the response is successful (status code 200)
                     if (response.ok) {
-                        // The response won't contain the actual data due to no-cors, but you can check headers or use other methods as needed.
+                        const jsonData = await response.json();
+                        setData(jsonData); // Set the data using setData
                         console.log('Request successful');
+
                     } else {
                         console.error('Request failed with status:', response.status);
                     }
@@ -167,7 +167,7 @@ const HomePopularCourse: FC =
             fetchData();
         }, []);
 
-
+        console.log(data)
 
         const {
             breakpoints,
