@@ -10,11 +10,17 @@ import Grid from '@mui/material/Grid'
 import Link from 'next/link'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
-import {Link as ScrollLink} from 'react-scroll'
-import {StyledButton} from '@/components/styled-button'
+import { Link as ScrollLink } from 'react-scroll'
+import { StyledButton } from '@/components/styled-button'
 import PlayArrowIcon from '@mui/icons-material/PlayArrow'
 import ReactCurvedText from 'react-curved-text'
 import HomeVideo from './video'
+import Slider, { Settings } from 'react-slick'
+import IconButton from '@mui/material/IconButton'
+import useMediaQuery from '@mui/material/useMediaQuery'
+import { useTheme, styled } from '@mui/material/styles'
+import IconArrowBack from '@mui/icons-material/ArrowBack'
+import IconArrowForward from '@mui/icons-material/ArrowForward'
 
 interface Exp {
     label: string
@@ -23,6 +29,35 @@ interface Exp {
 
 interface ExpItemProps {
     item: Exp
+}
+interface SliderArrowArrow {
+    onClick?: () => void
+    type: 'next' | 'prev'
+    className?: 'string'
+}
+
+const SliderArrow: FC<SliderArrowArrow> = (props) => {
+    const { onClick, type, className } = props
+    return (
+        <IconButton
+            sx={{
+                backgroundColor: 'background.paper',
+                color: 'primary.main',
+                '&:hover': { backgroundColor: 'primary.main', color: 'primary.contrastText' },
+                bottom: '-28px !important',
+                left: 'unset !important',
+                right: type === 'prev' ? '60px !important' : '0 !important',
+                zIndex: 10,
+                boxShadow: 1,
+            }}
+            disableRipple
+            color="inherit"
+            onClick={onClick}
+            className={className}
+        >
+            {type === 'next' ? <IconArrowForward sx={{ fontSize: 22 }} /> : <IconArrowBack sx={{ fontSize: 22 }} />}
+        </IconButton>
+    )
 }
 
 const svgMarkup = `
@@ -40,6 +75,23 @@ const svgMarkup = `
     </svg>
   `
 
+const StyledDots = styled('ul')(({ theme }) => ({
+    '&.slick-dots': {
+        position: 'absolute',
+        left: 0,
+        bottom: -20,
+        paddingLeft: theme.spacing(1),
+        textAlign: 'left',
+        '& li': {
+            marginRight: theme.spacing(2),
+            '&.slick-active>div': {
+                backgroundColor: theme.palette.primary.main,
+            },
+        },
+    },
+}))
+
+
 const HomeHero: FC =
     () => {
         const [
@@ -53,6 +105,24 @@ const HomeHero: FC =
             useRef<HTMLVideoElement>(
                 null
             )
+
+        const { breakpoints } = useTheme()
+        const matchMobileView = useMediaQuery(breakpoints.down('md'))
+
+        const sliderConfig: Settings = {
+            infinite: true,
+            // autoplay: true,
+            speed: 300,
+            slidesToShow: matchMobileView ? 1 : 4,
+            slidesToScroll: 1,
+            prevArrow: <SliderArrow type="prev" />,
+            nextArrow: <SliderArrow type="next" />,
+            dots: true,
+            appendDots: (dots) => <StyledDots>{dots}</StyledDots>,
+            customPaging: () => (
+                <Box sx={{ height: 8, width: 30, backgroundColor: 'divider', display: 'inline-block', borderRadius: 4 }} />
+            ),
+        }
 
         return (
             <Box
@@ -220,31 +290,15 @@ const HomeHero: FC =
                     Turn
                     Solo
                     Workouts{' '}
-                    <br/>
+                    <br />
                     Into
                     Shared
                     Victories
                 </Box>
 
                 <Container maxWidth="xl">
+                    <Slider {...sliderConfig}>
 
-
-                    {/* Experience */}
-                    <Box
-                        sx={{
-                            // boxShadow: 2,
-                            py: 2,
-                            px: 2,
-                            borderRadius: 4,
-                            mt: 4,
-                            display:
-                                'flex',
-                            flexWrap:
-                                'wrap',
-                            justifyContent:
-                                'space-around',
-                        }}
-                    >
                         <Box
                             marginY={
                                 '50px'
@@ -411,7 +465,10 @@ const HomeHero: FC =
                                 discussions
                             </Box>
                         </Box>
-                    </Box>
+                    </Slider>
+
+                    {/* Experience */}
+
                 </Container>
             </Box>
         )

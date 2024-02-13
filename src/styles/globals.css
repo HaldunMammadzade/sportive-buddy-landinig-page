@@ -108,6 +108,7 @@ body {
 .term a {
   text-decoration: none;
   color: black;
+  font-weight: 900;
 }
 
 .term {

@@ -88,6 +88,7 @@ const Footer: FC =
                 </Typography>
                 <FooterSocialLinks />
                 <div className="term"><Link href="/privacy"> Privacy and Policy</Link></div>
+                <div className="term"><Link href="/terms">Terms and Conditions</Link></div>
               </Box>
             </Grid>
 
