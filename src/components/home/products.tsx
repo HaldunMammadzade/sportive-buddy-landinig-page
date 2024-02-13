@@ -21,6 +21,7 @@ import IconArrowForward from '@mui/icons-material/ArrowForward'
 
 //import { data } from './products.data'
 import { CourseCardItem } from '@/components/course'
+import { json } from 'stream/consumers'
 
 interface SliderArrowArrow {
     onClick?: () => void
@@ -148,12 +149,20 @@ const HomePopularCourse: FC =
         useEffect(() => {
             const fetchData = async () => {
                 try {
-                    const response = await fetch('https://sportivebuddy.com/api/news');
-                    const result: Course[] = await response.json();
-                    setData(result);
-                    console.log(data)
+                    const response = await fetch('https://sportivebuddy.com/api/news', {
+                        mode: 'no-cors',
+                    });
+                    if (response.ok) {
+                        const jsonData = await response.json();
+                        console.log(jsonData);
+                        setData(jsonData); // Set the data using setData
+                        console.log('Request successful');
+
+                    } else {
+                        console.error('Request failed with status:');
+                    }
                 } catch (error) {
-                    console.error('Opss!', error);
+                    console.error('Oops!', error);
                 }
             };
 
