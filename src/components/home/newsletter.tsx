@@ -53,7 +53,7 @@ const HomeNewsLetter: FC =
           const response = await axios('https://sportivebuddy.com/api/location');
           if (response) {
             console.log('Success');
-            setTurkeyLocation(response.data)
+            setTurkeyLocation(response.data.location.name)
           } else {
             console.error('Error');
           }
@@ -121,7 +121,7 @@ const HomeNewsLetter: FC =
               our
               app
               in
-              ${turkeyLocation.location.name}
+              ${turkeyLocation}
               Share
               with
               friends,
