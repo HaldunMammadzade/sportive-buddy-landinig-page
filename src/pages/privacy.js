@@ -5,6 +5,7 @@ const Privacy = () => {
 
     return (
         <div style={{ padding: "20px 50px" }}>
+            <button style={{ backgroundColor: "#C6DD7D", border: "none", borderRadius: "5px", padding: "5px 15px" }}><a href="/" style={{ textDecoration: "none", color: "black", fontWeight: "bold", fontSize: "18px" }}>Go to Home</a></button>
             <h1>1. Who is SportiveBuddy</h1>
             <p>SportiveBuddy OÜ (hereinafter SportiveBuddy), with its headquarter located at Akadeemia tee 5, Tallinn, Estonia. SportiveBuddy was established on August 21, 2023 as Private limited company, and is registered under number 16801469 in Tallinn, Estonia</p>
 

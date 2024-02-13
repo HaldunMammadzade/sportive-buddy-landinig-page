@@ -5,6 +5,7 @@ const Terms = () => {
 
     return (
         <div style={{ padding: "20px 50px" }}>
+            <button style={{ backgroundColor: "#C6DD7D", border: "none", borderRadius: "5px", padding: "5px 15px" }}><a href="/" style={{ textDecoration: "none", color: "black", fontWeight: "bold", fontSize: "18px" }}>Go to Home</a></button>
             <h1>Overview</h1>
             <p>The following provides an overview of our Terms and Conditions applicable to our
                 Platform, encompassing any website, application, or service offered by us. It is
