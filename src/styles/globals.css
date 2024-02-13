@@ -120,4 +120,19 @@ body {
  .home-sc{ 
   display: none !important;
  }
+ .sc-main {
+  margin-top: 850px !important;
+ }
+ .main-text {
+  color: black;
+  font-size: 26px;
+  font-weight: 900;
+ }
+
+ .main-slogan {
+  top: 50px !important;
+ } 
+ .sc {
+  top: 140px !important;
+ }
 }

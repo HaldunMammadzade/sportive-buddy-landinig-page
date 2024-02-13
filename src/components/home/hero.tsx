@@ -105,10 +105,17 @@ const HomeHero: FC =
             useRef<HTMLVideoElement>(
                 null
             )
-
+        const handleVideoClick = () => {
+            if (!isVideoPlaying) {
+                setVideoPlaying(true);
+                if (videoRef.current) {
+                    videoRef.current.play();
+                }
+            }
+        };
         const { breakpoints } = useTheme()
         const matchMobileView = useMediaQuery(breakpoints.down('md'))
-
+        const isMobile = useMediaQuery(breakpoints.down('sm'));
         const sliderConfig: Settings = {
             infinite: true,
             // autoplay: true,
@@ -156,7 +163,10 @@ const HomeHero: FC =
                         top: '40px',
                         right:
                             '250px',
+                        backgroundColor: "white"
                     }}
+
+                    className='sc'
                 >
                     <Box
                         position={
@@ -174,7 +184,8 @@ const HomeHero: FC =
                         height={
                             '350px'
                         }
-                        className="home-sc"
+
+
                     >
                         <Image
                             objectFit="contain"
@@ -237,34 +248,21 @@ const HomeHero: FC =
                         </Link>
                     </Box>
                 </Grid>
-                <video
-                    ref={
-                        videoRef
-                    }
-                    width="100%"
-                    height="750px"
-                    style={{
-                        objectFit:
-                            'cover',
-                    }}
-                    preload="auto"
-                    autoPlay
-                    muted
-                    loop
-                >
-                    <source
-                        src="/video/v.mp4"
-                        type="video/mp4"
-                    />
-                    Your
-                    browser
-                    does
-                    not
-                    support
-                    the
-                    video
-                    tag.
-                </video>
+                {!isMobile && (
+                    <video
+                        ref={videoRef}
+                        width="100%"
+                        height="750px"
+                        style={{ objectFit: 'cover' }}
+                        preload="auto"
+                        autoPlay
+                        muted
+                        loop
+                    >
+                        <source src="/video/v.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+                )}
 
                 <Box
                     color={
@@ -286,7 +284,7 @@ const HomeHero: FC =
                     left={
                         '70px'
                     }
-                    className="main-text"
+                    className="main-text main-slogan"
                 >
                     {' '}
                     Turn
@@ -308,6 +306,7 @@ const HomeHero: FC =
                             textAlign={
                                 'center'
                             }
+                            className="sc-main"
                         >
                             <Box>
                                 {' '}
@@ -349,6 +348,7 @@ const HomeHero: FC =
                             textAlign={
                                 'center'
                             }
+                            className="sc-main"
                         >
                             <Box>
                                 {' '}
@@ -392,6 +392,7 @@ const HomeHero: FC =
                             textAlign={
                                 'center'
                             }
+                            className="sc-main"
                         >
                             <Box>
                                 {' '}
@@ -433,6 +434,7 @@ const HomeHero: FC =
                             textAlign={
                                 'center'
                             }
+                            className="sc-main"
                         >
                             <Box>
                                 {' '}

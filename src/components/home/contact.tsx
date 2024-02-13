@@ -32,7 +32,7 @@ const HomeContact: FC =
 
       fetch('https://sportivebuddy.com/api/feedback', {
         method: 'POST',
-        mode: 'no-cors',
+
         headers: {
           'Content-Type': 'application/json',
         },
