@@ -151,7 +151,7 @@ const HomePopularCourse: FC =
                     const response = await fetch('https://sportivebuddy.com/api/news', {
                         mode: 'no-cors',
                     });
-                    if (response.ok) {
+                    if (response) {
                         const jsonData = await response.json();
                         setData(jsonData); // Set the data using setData
                         console.log('Request successful');
@@ -167,7 +167,7 @@ const HomePopularCourse: FC =
             fetchData();
         }, []);
 
-        console.log(data)
+
 
         const {
             breakpoints,
