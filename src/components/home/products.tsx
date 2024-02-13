@@ -148,19 +148,12 @@ const HomePopularCourse: FC =
         useEffect(() => {
             const fetchData = async () => {
                 try {
-                    const response = await fetch('https://sportivebuddy.com/api/news', {
-                        mode: 'no-cors',
-                    });
-                    if (response) {
-                        const jsonData = await response.json();
-                        setData(jsonData); // Set the data using setData
-                        console.log('Request successful');
-
-                    } else {
-                        console.error('Request failed with status:', response.status);
-                    }
+                    const response = await fetch('https://sportivebuddy.com/api/news');
+                    const result: Course[] = await response.json();
+                    setData(result);
+                    console.log(data)
                 } catch (error) {
-                    console.error('Oops!', error);
+                    console.error('Opss!', error);
                 }
             };
 
