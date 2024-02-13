@@ -4,6 +4,7 @@ import InputBase from '@mui/material/InputBase'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 import { StyledButton } from '../styled-button'
+import axios from 'axios';
 
 const HomeNewsLetter: FC =
   () => {
@@ -49,24 +50,22 @@ const HomeNewsLetter: FC =
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await fetch('https://sportivebuddy.com/api/location', {
-            method: 'GET',
-            mode: 'no-cors',
-          });
-          if (response.ok) {
-            console.log('success');
+          const response = await axios('https://sportivebuddy.com/api/location');
+          if (response) {
+            console.log('Success');
+            setTurkeyLocation(response.data)
           } else {
-            console.error('error');
+            console.error('Error');
           }
         } catch (error) {
-          console.error('error:', error);
+          console.error('Error:', error);
         }
       };
 
       fetchData();
     }, []);
 
-
+    console.log(turkeyLocation);
     return (
       <Box
         sx={{
@@ -122,7 +121,7 @@ const HomeNewsLetter: FC =
               our
               app
               in
-              ${turkeyLocation}
+              ${turkeyLocation.location.name}
               Share
               with
               friends,
