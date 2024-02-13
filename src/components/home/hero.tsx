@@ -174,6 +174,7 @@ const HomeHero: FC =
                         height={
                             '350px'
                         }
+                        className="home-sc"
                     >
                         <Image
                             objectFit="contain"
@@ -185,6 +186,7 @@ const HomeHero: FC =
                                 550
                             }
                             alt="img"
+
                         />
                     </Box>
                     <Box

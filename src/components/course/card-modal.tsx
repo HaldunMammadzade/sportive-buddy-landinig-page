@@ -19,7 +19,7 @@ const ModalComponent: FC<ModalComponentProps> = ({ isOpen, onClose, item }) => {
                     X
                 </Button>
 
-                <Box sx={{ display: 'flex', justifyContent: 'center'}}>
+                <Box sx={{ display: 'flex', justifyContent: 'center' }}>
                     <img
                         src={
                             item?.banner
@@ -34,10 +34,10 @@ const ModalComponent: FC<ModalComponentProps> = ({ isOpen, onClose, item }) => {
                     />
                 </Box>
 
-                <Typography variant="h6" component="div" sx={{ fontWeight: 'bold', fontSize: '20px', marginTop: '15px',  marginBottom: '15px'}}>
+                <Typography variant="h6" component="div" sx={{ fontWeight: 'bold', fontSize: '20px', marginTop: '15px', marginBottom: '15px' }}>
                     {item.title}
                 </Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ display: 'filex', justifuContent: 'center'}}>
+                <Typography variant="body2" color="text.secondary" sx={{ display: 'flex', justifuContent: 'center', lineBreak: "anywhere" }}>
                     {item.content}
                 </Typography>
             </Box>
