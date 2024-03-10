@@ -4,46 +4,52 @@ import InputBase from '@mui/material/InputBase'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 import { StyledButton } from '../styled-button'
+import Snackbar from '@mui/material/Snackbar';
+import Alert from '@mui/material/Alert';
 import axios from 'axios';
+
+
 
 const HomeNewsLetter: FC =
   () => {
     const [turkeyLocation, setTurkeyLocation] = useState<string | null>(null);
     const [email, setEmail] = useState('');
     const [cong, setCong] = useState('');
+    const [snackbarOpen, setSnackbarOpen] = useState(false);
+    const [snackbarMessage, setSnackbarMessage] = useState('');
+
+
     const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       setEmail(event.target.value);
     };
 
 
 
-    const handleSendClick = () => {
+    const handleSnackbarClose = () => {
+      setSnackbarOpen(false);
+    };
+
+    const handleSendClick = async () => {
       const data = {
         email: email,
       };
 
-      fetch('https://sportivebuddy.com/api/notify', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+      try {
+        const response = await axios.post('https://sportivebuddy.com/api/notify', data);
 
-        body: JSON.stringify(data),
-      })
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          return response.json();
-        })
-        .then(responseData => {
-          setCong("Your email sent !")
-          console.log(responseData);
-        })
-        .catch(error => {
-
-          console.error('Error:', error);
-        });
+        if (response.status === 200) {
+          setCong("Your email sent !");
+          setSnackbarMessage("We received your email!");
+          setSnackbarOpen(true);
+          console.log(response.data);
+        } else {
+          throw new Error('Network response was not ok');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        setSnackbarMessage("An error occurred while sending your message.");
+        setSnackbarOpen(true);
+      }
     };
 
 
@@ -65,7 +71,6 @@ const HomeNewsLetter: FC =
       fetchData();
     }, []);
 
-    console.log(turkeyLocation);
     return (
       <Box
         sx={{
@@ -195,6 +200,20 @@ const HomeNewsLetter: FC =
             </Box>
           </Box>
         </Container>
+
+        <Snackbar
+          open={snackbarOpen}
+          autoHideDuration={6000}
+          onClose={handleSnackbarClose}
+        >
+          <Alert
+            onClose={handleSnackbarClose}
+            severity={snackbarMessage.includes('Error') ? 'error' : 'success'}
+            sx={{ width: '100%' }}
+          >
+            {snackbarMessage}
+          </Alert>
+        </Snackbar>
       </Box>
     )
   }

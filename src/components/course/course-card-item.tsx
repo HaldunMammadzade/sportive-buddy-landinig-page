@@ -11,7 +11,7 @@ import IconButton, {
 import ArrowForward from '@mui/icons-material/ArrowForward'
 import { Course } from '@/interfaces/course'
 import ModalComponent from './card-modal'
-import {width} from "@mui/system";
+import { width } from "@mui/system";
 
 interface Props {
   item: Course
@@ -35,7 +35,12 @@ const CourseCardItem: FC<
       setIsModalOpen(false);
     };
 
-    console.log(item, 'content')
+    const truncatedContent = item.content
+      ? item.content
+        .split('\n')
+        .slice(0, 1)
+        .join('\n')
+      : '';
 
     return (
       <Box
@@ -87,11 +92,12 @@ const CourseCardItem: FC<
                 item?.banner
               }
               style={{
-                  minWidth: '200px',
+                minWidth: '200px',
                 width:
-                  '250px',
+                  '100%',
                 height:
-                  '250px',
+                  '300px',
+                objectFit: "cover"
               }}
             />
           </Box>
@@ -101,10 +107,8 @@ const CourseCardItem: FC<
                 item.title
               }
             </h2>
-            <h5 style={{overflow: 'hidden'}}>
-              {
-                item.content
-              }
+            <h5 style={{ overflow: 'hidden' }}>
+              {truncatedContent}...
             </h5>
           </div>
           <div

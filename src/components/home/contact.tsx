@@ -7,7 +7,9 @@ import { TextareaAutosize } from '@mui/material'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 import { StyledButton } from '../styled-button'
-
+import Snackbar from '@mui/material/Snackbar';
+import Alert from '@mui/material/Alert';
+import axios from 'axios';
 
 const HomeContact: FC =
   () => {
@@ -15,6 +17,8 @@ const HomeContact: FC =
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
     const [cong, setCong] = useState('');
+    const [snackbarOpen, setSnackbarOpen] = useState(false);
+    const [snackbarMessage, setSnackbarMessage] = useState('');
 
     const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       setEmail(event.target.value);
@@ -24,35 +28,36 @@ const HomeContact: FC =
       setMessage(event.target.value);
     };
 
-    const handleSendClick = () => {
+    const handleSnackbarClose = () => {
+      setSnackbarOpen(false);
+    };
+
+    const handleSendClick = async () => {
       const data = {
         email: email,
-        message: message,
       };
 
-      fetch('https://sportivebuddy.com/api/feedback', {
-        method: 'POST',
+      try {
+        const response = await axios.post('https://sportivebuddy.com/api/feedback', data);
 
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      })
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          return response.json();
-        })
-        .then(responseData => {
-          setCong("Your message sent !")
-          console.log(responseData);
-        })
-        .catch(error => {
-
-          console.error('Error:', error);
-        });
+        if (response.status === 200) {
+          setCong("Your email sent !");
+          setSnackbarMessage("Your message was sent!");
+          setSnackbarOpen(true);
+          console.log(response.data);
+        } else {
+          throw new Error('Network response was not ok');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        setSnackbarMessage("An error occurred while sending your message.");
+        setSnackbarOpen(true);
+      }
     };
+
+
+
+
 
 
     return (
@@ -205,6 +210,20 @@ const HomeContact: FC =
 
           </Box>
         </Container>
+
+        <Snackbar
+          open={snackbarOpen}
+          autoHideDuration={6000}
+          onClose={handleSnackbarClose}
+        >
+          <Alert
+            onClose={handleSnackbarClose}
+            severity={snackbarMessage.includes('Error') ? 'error' : 'success'}
+            sx={{ width: '100%' }}
+          >
+            {snackbarMessage}
+          </Alert>
+        </Snackbar>
       </Box>
     )
   }
